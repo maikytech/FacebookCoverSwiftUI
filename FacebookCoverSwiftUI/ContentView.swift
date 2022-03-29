@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+struct Settings {
+    static let facebookColor = Color(red: 56/255,
+                                     green: 87/255,
+                                     blue: 163/255)
+}
+
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Image("logo")
+        }
     }
 }
 
