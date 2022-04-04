@@ -13,9 +13,22 @@ struct Settings {
                                      blue: 163/255)
 }
 
-struct ContentView: View {
+struct CustomTextField: View {
     @State var emailValue: String = ""
+    var placeholder: String = ""
     
+    var body: some View {
+        TextField(placeholder, text: $emailValue)
+            .padding(.all, 10)
+            .foregroundColor(.black)
+            .accentColor(.green)
+            .background(.white)
+            .cornerRadius(25)
+        
+    }
+}
+
+struct ContentView: View {
     var body: some View {
         ScrollView {
             VStack {
@@ -30,14 +43,22 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding(10)
                 
-                TextField("email", text: $emailValue)
-                    .padding(.all, 10)
-                    .foregroundColor(.black)
-                    .accentColor(.pink)
-                    .background(.white)
-                    .cornerRadius(25)
+                CustomTextField(placeholder: "Email")
+                CustomTextField(placeholder: "Password")
+                
+                Button(action: {
+                    //Action
+                }) {
+                    Text("Sign In")
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(.all)
+                        .background(.white.opacity(0.3))
+                        .cornerRadius(25)
+                }
+                
             }
-            .padding(.top, 50)
+            .padding([.top, .leading, .trailing], 50)
         }
         .background(Settings.facebookColor)
         .edgesIgnoringSafeArea(Edge.Set.all)
