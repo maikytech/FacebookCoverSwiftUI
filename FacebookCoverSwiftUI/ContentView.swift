@@ -31,7 +31,7 @@ struct CustomTextField: View {
 struct ContentView: View {
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 20) {
                 Image("logo")
                     .resizable()
                     .frame(width: 250, height: 54)
